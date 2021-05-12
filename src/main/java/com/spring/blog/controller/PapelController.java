@@ -34,7 +34,6 @@ public class PapelController {
 		
 		
 		@GetMapping("/administrativo/papeis/cadastrar")
-		@ApiOperation ("Cadastra os relatorio dentro do banco de dados")
 		public ModelAndView cadastrar(Papel papel) {
 			ModelAndView mv =  new ModelAndView("administrativo/papeis/cadastro");
 			mv.addObject("papel",papel);

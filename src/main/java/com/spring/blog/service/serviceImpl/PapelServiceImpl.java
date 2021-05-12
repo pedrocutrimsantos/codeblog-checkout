@@ -17,24 +17,20 @@ public class PapelServiceImpl implements PapelService {
 	
 	@Override
 	public List<Papel> findAll() {
-		// TODO Auto-generated method stub
 		return papelRepository.findAll(sortByIdAsc());
 	}
 
 	private Sort sortByIdAsc() {
-		// TODO Auto-generated method stub
 		return new Sort(Sort.Direction.DESC, "id");
 	}
 
 	@Override
 	public Papel findById(long id) {
-		// TODO Auto-generated method stub
 		return papelRepository.findById(id).get();
 	}
 
 	@Override
 	public Papel save(Papel papel) {
-		// TODO Auto-generated method stub
 		return papelRepository.save(papel);
 	}
 

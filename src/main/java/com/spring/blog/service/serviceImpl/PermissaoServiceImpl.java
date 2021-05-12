@@ -16,24 +16,20 @@ public class PermissaoServiceImpl implements PermissaoService {
 	
 	@Override
 	public List<Permissao> findAll() {
-		// TODO Auto-generated method stub
 		return permissaoRepository.findAll(sortByIdAsc());
 	}
 
 	private Sort sortByIdAsc() {
-		// TODO Auto-generated method stub
 		return new Sort(Sort.Direction.DESC, "id");
 	}
 
 	@Override
 	public Permissao findById(long id) {
-		// TODO Auto-generated method stub
 		return permissaoRepository.findById(id).get();
 	}
 
 	@Override
 	public Permissao save(Permissao produto) {
-		// TODO Auto-generated method stub
 		return permissaoRepository.save(produto);
 	}
 

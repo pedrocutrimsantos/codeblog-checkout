@@ -18,18 +18,15 @@ public class CompraServiceImpl implements CompraService {
 
 	@Override
 	public List<Compra> findAll() {
-		// TODO Auto-generated method stub
 		return compraRepository.findAll(sortByIdAsc());
 	}
 
 	private Sort sortByIdAsc() {
-		// TODO Auto-generated method stub
 		return new Sort(Sort.Direction.DESC, "id");
 	}
 
 	@Override
 	public Compra findById(long id) {
-		// TODO Auto-generated method stub
 		return compraRepository.findById(id).get();
 	}
 

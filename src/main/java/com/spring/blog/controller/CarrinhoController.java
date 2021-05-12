@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,6 +22,7 @@ import com.spring.blog.model.Produto;
 import com.spring.blog.repository.CompraRepository;
 import com.spring.blog.repository.ItensCompraRepository;
 import com.spring.blog.repository.ProdutoRepository;
+import com.spring.blog.service.serviceImpl.ItensCompraServiceImpl;
 
 @RestController
 @RequestMapping("/CarrinhoController")
@@ -28,16 +31,12 @@ public class CarrinhoController {
 	private Compra compra = new Compra();
 	private Cliente cliente;
 	
-	@RequestMapping("/")
-    public String index(){
-        return "post";
-    }
 	
 	@Autowired
-	private ProdutoRepository repositorioProduto;
+	private ProdutoRepository repositoryProduto;
 
 	@Autowired
-	private CompraRepository repositorioCompra;
+	private CompraRepository repositoryCompra;
 
 	@Autowired
 	private ItensCompraRepository repositorioItensCompra;
@@ -48,6 +47,8 @@ public class CarrinhoController {
 			compra.setValorTotal(compra.getValorTotal() + it.getValorTotal());
 		}
 	}
+	
+	
 
 	@GetMapping("/carrinho")
 	public ModelAndView chamarCarrinho() {
@@ -83,7 +84,7 @@ public class CarrinhoController {
 		ModelAndView mv = new ModelAndView("cliente/mensagemFinalizou");
 		compra.setCliente(cliente);
 		compra.setFormaPagamento(formaPagamento);
-		repositorioCompra.saveAndFlush(compra);
+		repositoryCompra.saveAndFlush(compra);
 
 		for (ItensCompra c : itensCompra) {
 			c.setCompra(compra);
@@ -132,7 +133,7 @@ public class CarrinhoController {
 	@GetMapping("/adicionarCarrinho/{id}")
 	public String adicionarCarrinho(@PathVariable Long id) {
 
-		Optional<Produto> prod = repositorioProduto.findById(id);
+		Optional<Produto> prod = repositoryProduto.findById(id);
 		Produto produto = prod.get();
 
 		int controle = 0;

@@ -16,7 +16,8 @@ public class ClienteServiceImpl implements ClienteService {
 	ClienteRepository clienteRepository;
 	@Autowired
 	EnderecoServiceImpl enderecoServiceImpl;
-
+	private ClienteServiceImpl clienteServiceImpl;
+	
 	@Override
 	public List<Cliente> findAll() {
 		return clienteRepository.findAll();

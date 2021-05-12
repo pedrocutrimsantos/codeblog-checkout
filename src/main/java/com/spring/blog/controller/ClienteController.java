@@ -20,6 +20,7 @@ public class ClienteController {
 	@Autowired
 	private ClienteServiceImpl clienteServiceImpl;
 	
+	
 	@GetMapping("/listar/{email}")
 	public ResponseEntity<Cliente> listar(@RequestParam("email") String email) {
 		System.out.println(email);

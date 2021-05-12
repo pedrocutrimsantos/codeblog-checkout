@@ -16,24 +16,20 @@ public class CidadeServiceImpl implements CidadeService {
 
 	@Override
 	public List<Cidade> findAll() {
-		// TODO Auto-generated method stub
 		return cidadeRepository.findAll(sortByIdAsc());
 	}
 
 	private Sort sortByIdAsc() {
-		// TODO Auto-generated method stub
 		return new Sort(Sort.Direction.DESC, "id");
 	}
 
 	@Override
 	public Cidade findById(long id) {
-		// TODO Auto-generated method stub
 		return cidadeRepository.findById(id).get();
 	}
 
 	@Override
 	public Cidade save(Cidade cidade) {
-		// TODO Auto-generated method stub
 		return cidadeRepository.save(cidade);
 	}
 

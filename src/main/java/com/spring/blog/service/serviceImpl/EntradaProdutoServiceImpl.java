@@ -17,24 +17,20 @@ public class EntradaProdutoServiceImpl implements EntradaProdutoService{
 
 	@Override
 	public List<EntradaProduto> findAll() {
-		// TODO Auto-generated method stub
 		return estadoRepository.findAll(sortByIdAsc());
 	}
 
 	private Sort sortByIdAsc() {
-		// TODO Auto-generated method stub
 		return new Sort(Sort.Direction.DESC, "id");
 	}
 
 	@Override
 	public EntradaProduto findById(long id) {
-		// TODO Auto-generated method stub
 		return estadoRepository.findById(id).get();
 	}
 
 	@Override
 	public EntradaProduto save(EntradaProduto estado) {
-		// TODO Auto-generated method stub
 		return estadoRepository.save(estado);
 	}
 
