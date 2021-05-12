@@ -1,0 +1,15 @@
+Requisitos:
+banco posterSQL
+name = codeblog
+(As tabelas são geradas automaticamente, assim que o programa é inicializado)
+
+
+Inicialização
+Postman
+linhas de comandos especificadas nos @GetMapping e @PostsMapping e http://localhost:8080/swagger-ui.html
+local para documentação dos controllers e testes
+
+
+base de dados ainda vazia;
+http://localhost:8080/swagger-ui.html
+
